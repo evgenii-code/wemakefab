@@ -1,51 +1,57 @@
 <template>
   <div class="basket">
-    <div class="basket__summary">
-      <h2 class="basket__title">Total</h2>
+    <div data-scroll class="basket__scroll">
+      <div class="basket__summary">
+        <h2 class="basket__title">Total</h2>
 
-      <!-- Subtotal -->
-      <div class="basket__row">
-        <p class="basket__text">Subtotal:</p>
-        <p class="basket__text basket__text--amount">{{ amount.subtotal }}</p>
+        <!-- Subtotal -->
+        <div class="basket__row">
+          <p class="basket__text">Subtotal:</p>
+          <p class="basket__text basket__text--amount">
+            {{ amount.subtotal }}
+          </p>
+        </div>
+
+        <!-- Sale -->
+        <div class="basket__row">
+          <p class="basket__text">Sale:</p>
+          <p class="basket__text basket__text--amount">{{ amount.sale }}</p>
+        </div>
+
+        <!-- Clear basket -->
+        <div class="basket__row">
+          <p class="basket__text">Content:</p>
+          <base-button-clear @click="clearBasket" class="basket__clear"
+            >Remove all</base-button-clear
+          >
+        </div>
+
+        <!-- Total -->
+        <div class="basket__row basket__row--total">
+          <p class="basket__text">Order total:</p>
+          <p class="basket__text basket__text--amount">
+            {{ amount.total }}
+          </p>
+        </div>
       </div>
 
-      <!-- Sale -->
-      <div class="basket__row">
-        <p class="basket__text">Sale:</p>
-        <p class="basket__text basket__text--amount">{{ amount.sale }}</p>
-      </div>
-
-      <!-- Clear basket -->
-      <div class="basket__row">
-        <p class="basket__text">Content:</p>
-        <base-button-clear @click="clearBasket" class="basket__clear"
-          >Remove all</base-button-clear
+      <!-- Products list -->
+      <ul v-if="productsInTheBasket.length" class="basket__items">
+        <li
+          class="basket__item"
+          v-for="product in productsInTheBasket"
+          :key="product.id"
         >
-      </div>
+          <basket-card
+            @remove="removeFromBasket"
+            class="basket__card"
+            :product="product"
+          />
+        </li>
+      </ul>
 
-      <!-- Total -->
-      <div class="basket__row basket__row--total">
-        <p class="basket__text">Order total:</p>
-        <p class="basket__text basket__text--amount">{{ amount.total }}</p>
-      </div>
+      <p v-else class="basket__items basket__items--empty">Empty</p>
     </div>
-
-    <!-- Products list -->
-    <ul v-if="productsInTheBasket.length" class="basket__items">
-      <li
-        class="basket__item"
-        v-for="product in productsInTheBasket"
-        :key="product.id"
-      >
-        <basket-card
-          @remove="removeFromBasket"
-          class="basket__card"
-          :product="product"
-        />
-      </li>
-    </ul>
-
-    <p v-else class="basket__items basket__items--empty">Empty</p>
 
     <!-- Checkout button -->
     <base-button class="basket__checkout">
@@ -144,6 +150,17 @@ export default {
   background-color: var(--color-background);
   box-sizing: border-box;
 
+  &__scroll {
+    overflow: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   &__summary {
     position: relative;
     padding: toRem(20px) 0 0;
@@ -180,7 +197,6 @@ export default {
     }
   }
 
-  &__summary,
   &__row--total {
     &:before,
     &:after {
@@ -193,7 +209,7 @@ export default {
 
     &:before {
       content: "";
-      top: -1px;
+      top: 0;
     }
   }
 
@@ -222,14 +238,6 @@ export default {
     padding: toRem(40px) 0;
     list-style: none;
 
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
     &--empty {
       text-align: center;
     }
@@ -244,7 +252,6 @@ export default {
   }
 
   &__checkout {
-    width: calc(100% + toRem($basket-right-offset) + toRem($container-gutter));
     min-height: toRem(82px);
     font-weight: 500;
     font-size: toRem(20px);
@@ -252,7 +259,7 @@ export default {
     justify-content: space-between;
     padding: toRem(30px) toRem($basket-right-offset) toRem(30px)
       toRem($container-gutter);
-    margin: auto toRem(-$basket-right-offset) 0 toRem(-$container-gutter);
+    margin-top: auto;
   }
 }
 </style>

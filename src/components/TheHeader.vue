@@ -196,13 +196,29 @@ export default {
 
   &__basket {
     position: absolute;
-    top: 0;
+    top: 100%;
     right: toRem(-($basket-right-offset - $container-gutter));
     max-width: toRem(455px);
     z-index: 100;
     max-height: 100vh;
-    padding: toRem($header-height) toRem($basket-right-offset) 0
-      toRem($container-gutter);
+    height: calc(var(--app-height, 100vh) - $header-height);
+
+    transition: height var(--speed-fast) ease-in-out;
+
+    ::v-deep [data-scroll] {
+      padding: 0 toRem($basket-right-offset) 0 toRem($container-gutter);
+    }
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: toRem($header-height - 1px);
+      background-color: var(--color-background);
+      position: absolute;
+      top: toRem(-$header-height);
+      right: 0;
+      border-bottom: 1px solid var(--color-gray-300);
+    }
   }
 
   @media screen and (max-width: 580px) {
@@ -214,6 +230,10 @@ export default {
       flex-direction: column;
       gap: toRem(12px);
       font-size: toRem(16px);
+
+      &:after {
+        bottom: -1px;
+      }
     }
 
     &__navigation {
@@ -233,11 +253,19 @@ export default {
     &__basket {
       position: fixed;
       top: toRem($header-height);
-      bottom: 0;
       right: 0;
       left: 0;
       max-width: unset;
-      padding: 0 toRem($container-gutter) 0 toRem($container-gutter);
+      border-top: 1px solid var(--color-gray-300);
+
+      ::v-deep [data-scroll] {
+        margin: 0;
+        padding: 0 toRem($container-gutter) 0 toRem($container-gutter);
+      }
+
+      &:before {
+        content: unset;
+      }
     }
   }
 

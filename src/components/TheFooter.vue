@@ -55,13 +55,26 @@ export default {
     gap: toRem(40px);
   }
 
-  &__item {
-  }
-
   &__control {
     font: inherit;
     color: inherit;
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 580px) {
+    &__container {
+      flex-direction: column;
+      justify-content: center;
+      gap: toRem(20px);
+    }
+
+    &__logo {
+      align-self: flex-start;
+    }
+
+    &__navigation {
+      align-self: flex-end;
+    }
   }
 }
 </style>
