@@ -1,0 +1,8 @@
+@import '../config.scss';
+
+/// Convert a given px unit to a rem unit
+/// @param {Number} $px - Number with px unit
+/// @return {Number} Number with rem unit
+@function toRem($px) {
+  @return $px / $font-base-size * 1rem;
+}

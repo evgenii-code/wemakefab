@@ -1,0 +1,28 @@
+@import './config';
+
+:root {
+  --color-background: #fff;
+  --color-dark: #000;
+  --color-primary: #1B1B1B;
+  --color-warning: #FF6B00;
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #d4d4d4;
+  --color-gray-300: #BDBDBD;
+  --color-gray-400: #B7B7B7;;
+  --color-gray-500: #8d8d8d;
+  --color-gray-600: #818181;
+
+  --color-text-dark: var(--color-dark);
+  --color-text-light: #fff;
+
+  --gradient-gray-100: linear-gradient(0deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+
+  --font-base: #{$font-base-size};
+  --font-family-sans: "Inter", Helvetica, Arial, sans-serif;
+
+  --speed-very-fast: .1s;
+  --speed-fast: .2s;
+
+  --app-header-height: 100px;
+  --app-basket-right-offset: 100px;
+}

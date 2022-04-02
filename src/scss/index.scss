@@ -1,0 +1,12 @@
+@import "normalize.css";
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html, body {
+  background-color: var(--color-background);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-base);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

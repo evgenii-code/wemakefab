@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "name": "Converse Kids 70",
+    "categories": [
+      "sneakers",
+      "light",
+      "kids"
+    ],
+    "prices": {
+      "new": 49.99
+    },
+    "image_name": "Converse_Kids_70"
+  },
+
+  {
+    "id": 2,
+    "name": "Converse Chuck 70",
+    "categories": [
+      "sneakers",
+      "light"
+    ],
+    "prices": {
+      "new": 49.99
+    },
+    "image_name": "Converse_Chuck_70"
+  },
+
+  {
+    "id": 3,
+    "name": "Converse Chuck 70 Renew High Top",
+    "categories": [
+      "sneakers",
+      "light"
+    ],
+    "prices": {
+      "old": 84.99,
+      "new": 50.99
+    },
+    "image_name": "Converse_Chuck_70_Renew_High_Top"
+  },
+
+  {
+    "id": 4,
+    "name": "Converse Pro Chuck 80",
+    "categories": [
+      "sneakers",
+      "light"
+    ],
+    "prices": {
+      "old": 99.99,
+      "new": 64.99
+    },
+    "image_name": "Converse_Pro_Chuck_80"
+  },
+
+  {
+    "id": 5,
+    "name": "Converse Winter Chuck 70",
+    "categories": [
+      "sneakers",
+      "dark"
+    ],
+    "prices": {
+      "old": 99.99,
+      "new": 79.99
+    },
+    "image_name": "Converse_Winter_Chuck_70"
+  },
+
+  {
+    "id": 6,
+    "name": "Converse Winter Chuck 70 Full Black",
+    "categories": [
+      "sneakers",
+      "dark"
+    ],
+    "prices": {
+      "new": 129.99
+    },
+    "image_name": "Converse_Winter_Chuck_70_Full_Black"
+  },
+
+  {
+    "id": 7,
+    "name": "Converse Winter Chuck 70 Black/White",
+    "categories": [
+      "sneakers",
+      "dark"
+    ],
+    "prices": {
+      "new": 99.99
+    },
+    "image_name": "Converse_Winter_Chuck_70_BlackWhite"
+  }
+]
