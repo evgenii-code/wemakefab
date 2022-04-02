@@ -14,6 +14,7 @@
 import TheHeader from "@/components/TheHeader.vue";
 import TheShop from "@/pages/TheShop.vue";
 import TheFooter from "@/components/TheFooter.vue";
+import setAppHeight from "@/utils/setAppHeight.js";
 
 export default {
   name: "App",
@@ -22,6 +23,29 @@ export default {
     TheHeader,
     TheShop,
     TheFooter,
+  },
+
+  methods: {
+    setListeners() {
+      if (!window) return;
+
+      window.addEventListener("resize", setAppHeight);
+    },
+
+    removeListeners() {
+      if (!window) return;
+
+      window.removeEventListener("resize", setAppHeight);
+    },
+  },
+
+  mounted() {
+    setAppHeight();
+    this.setListeners();
+  },
+
+  beforeDestroy() {
+    this.removeListeners();
   },
 };
 </script>
