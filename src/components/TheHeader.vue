@@ -200,8 +200,7 @@ export default {
     right: toRem(-($basket-right-offset - $container-gutter));
     max-width: toRem(455px);
     z-index: 100;
-    max-height: 100vh;
-    height: calc(var(--app-height, 100vh) - $header-height);
+    max-height: calc(var(--app-height, 100vh) - $header-height);
 
     transition: height var(--speed-fast) ease-in-out;
 
@@ -257,6 +256,8 @@ export default {
       left: 0;
       max-width: unset;
       border-top: 1px solid var(--color-gray-300);
+      max-height: 100vh;
+      height: calc(var(--app-height, 100vh) - $header-height);
 
       ::v-deep [data-scroll] {
         margin: 0;
